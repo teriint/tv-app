@@ -1,0 +1,12 @@
+.MoviePosts {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+    margin-top: 74px;
+}
+
+span.HistoryNavigation:hover {
+    cursor: pointer
+}

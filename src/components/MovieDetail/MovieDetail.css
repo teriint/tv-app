@@ -1,0 +1,62 @@
+.MovieDetail {
+    width: 90%;
+    margin: auto;
+    border: 1px ridge !important;
+    box-shadow: -4px 5px 5px #ccc;
+    text-align: justify;
+    flex-flow: row wrap;
+    margin-top: 74px;
+    justify-content: center;
+}
+
+.MovieDetail > p {
+    display: block !important;
+}
+
+.MovieDetail > h1 {
+    text-align: center;
+}
+
+.MovieDetail .col-3 {
+    text-align: center;
+}
+
+.ListEpisode {
+    display: flex;
+    width: 90%;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+
+.Edit {
+
+}
+
+.Edit label {
+    display: block;
+    color: grey;
+}
+
+.Edit button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    color: #fa923f;
+}
+
+.Edit button:hover,
+.Edit button:active {
+    color: #521751;
+}
+
+.Edit button.Delete {
+    color: red;
+}
+
+.Edit button.Delete:hover,
+.Edit button.Delete:active {
+    color: darkred;
+}

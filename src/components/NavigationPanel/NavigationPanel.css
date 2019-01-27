@@ -1,0 +1,40 @@
+.NavigationPanel {
+    height: 56px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90;
+    background-color: #373a3c;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.NavigationPanel > div {
+    border: none !important;
+    position: fixed;
+    right: 5%;
+    top: 1.8%;
+}
+
+.NavigationPanel > div > input {
+    padding: 0 !important;
+}
+
+
+.NavigationPanel  ul.navbar-nav {
+    flex-direction: unset;
+}
+
+li.nav-item{
+    margin: 0 10px;  
+}
+
+li.nav-item:hover {
+    cursor: pointer
+}
