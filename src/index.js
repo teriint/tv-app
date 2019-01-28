@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios';
+import { Provider } from 'react-redux';
+import { store } from './store/configureStore';
 
 import 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -26,6 +28,10 @@ axios.interceptors.response.use(response => {
     return Promise.reject(error);
 });
 
-       
-ReactDOM.render( <App />, document.getElementById( 'root' ) );
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById( 'root' ) 
+);
 registerServiceWorker();

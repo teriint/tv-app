@@ -13,6 +13,7 @@ class MovieDetail extends Component {
     }
 
     componentDidUpdate () {
+        console.log(this.props);
         if ( this.props.id ) {
             if ( !this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id) ) {
                 axios.get( '/shows/'+this.props.id+'?embed=episodes' )
@@ -43,7 +44,7 @@ class MovieDetail extends Component {
                         <div className="col-3">
                             <img  src={this.props.img ? this.props.img.medium : defaultImage} alt={this.props.name} />
                         </div>
-                        <div className="col-9">
+                        <div className="col-8">
                             <p><strong>Описание:</strong> {this.state.loadedPost.summary}</p>
                             <p><strong>Язык:</strong> {this.state.loadedPost.language}</p>
                             <p><strong>Жанр:</strong> {this.state.loadedPost.genres.map(genre => {

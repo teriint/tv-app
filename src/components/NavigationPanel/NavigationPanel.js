@@ -13,11 +13,10 @@ class NavigationPanel extends Component {
         resultSearch: []
     }
 
-
     SearchMovieHandler = (searchText) => {
+        this.props.clicked();
         axios.get('/search/shows?q=' + searchText)
         .then( response => {
-          
             const resultSearchMovies = response.data.map(resultSearch => {
                 return {
                     ...resultSearch.show
@@ -26,7 +25,7 @@ class NavigationPanel extends Component {
             this.setState({resultSearch: resultSearchMovies});
         } )
         .catch(error => {
-            {console.log(error)}
+            console.log(error)
         });
     }
 
@@ -34,7 +33,6 @@ class NavigationPanel extends Component {
         let resultSearchElement = null;
 
         resultSearchElement = this.state.resultSearch.map(resultSearch => {
-            console.log(resultSearch)
             return <Movie 
                 key={resultSearch.id}   
                 name={resultSearch.name} 
