@@ -1,7 +1,6 @@
-export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const GET_MOVIES_SUCCESS = 'GET_MOVIES_SUCCESS'
 export const GET_MOVIES_FAIL = 'GET_MOVIES_FAIL'
-export const GET_MOVIE_DETAIL = 'GET_MOVIE_DETAIL'
+// export const GET_MOVIE_DETAIL = 'GET_MOVIE_DETAIL'
 
 export function handleLoadMovies(arrMovies) {
 
@@ -23,11 +22,11 @@ export function handleLoadMovies(arrMovies) {
   
 }
 
-export function postSelectedHandler(id) {
-    return dispatch => {
-        dispatch({
-          type: GET_MOVIE_DETAIL,
-          payload: id,
-        }) 
-    };
-}
+// export function postSelectedHandler(id) {
+//     return dispatch => {
+//         dispatch({
+//           type: GET_MOVIE_DETAIL,
+//           payload: id,
+//         }) 
+//     };
+// }
