@@ -11,7 +11,6 @@ import {
   export function MovieDetailReducer(state = initialState, action) {
     switch (action.type) {
       case SET_MOVIE_DETAIL_SUCCESS:
-      console.log(action.payload);
         return {
           ...state,
           loadedPost: action.payload

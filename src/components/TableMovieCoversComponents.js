@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Movie from '../components/Movie/Movie';
-import MovieDetail from '../components/MovieDetail/MovieDetail';
 import HistoryNavigation from '../components/HistoryNavigation/HistoryNavigation';
 import NavigationPanel from '../components/NavigationPanel/NavigationPanel';
 import MovieDetailContainers from '../containers/MovieDetailContainers';
@@ -71,8 +70,6 @@ export class TableMovieCovers extends React.Component {
                 <section>
                     {posts.map(post => {
                         if (post.id === this.state.currentPostId) {
-                            console.log(this.state.currentPostId);
-                            console.log(post.id);
                             return <MovieDetailContainers key={post.id}
                             id={post.id} />;
                         } else {

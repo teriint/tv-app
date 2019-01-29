@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { getShowById } from '../actions/MovieDetailActions'
-import { MovieDetail } from '../components/MovieDetailComponents';
+import { MovieDetail } from '../components/MovieDetail/MovieDetailComponents';
 
 class MovieDetailContainers extends Component {
 
