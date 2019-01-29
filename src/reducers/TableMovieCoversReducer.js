@@ -12,7 +12,6 @@ const initialState = {
   }
   
   export function MovieCoversReducer(state = initialState, action) {
-    console.log(action);
     switch (action.type) {
       case GET_MOVIES_SUCCESS:
         return { ...state, posts: action.payload};
@@ -27,4 +26,3 @@ const initialState = {
         return state
     }
   }
-  

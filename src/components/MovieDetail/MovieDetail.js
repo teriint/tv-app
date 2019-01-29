@@ -13,7 +13,6 @@ class MovieDetail extends Component {
     }
 
     componentDidUpdate () {
-        console.log(this.props);
         if ( this.props.id ) {
             if ( !this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id) ) {
                 axios.get( '/shows/'+this.props.id+'?embed=episodes' )
@@ -22,13 +21,6 @@ class MovieDetail extends Component {
                     } );
             }
         }
-    }
-
-    deletePostHandler = () => {
-        axios.delete('/shows/' + this.props.id)
-            .then(response => {
-                console.log(response);
-            });
     }
 
     render () {
@@ -70,9 +62,6 @@ class MovieDetail extends Component {
                                 srcImg={episode.url} />;
                         })}
                     </div>
-                    {/* <div className="Edit">
-                        <button onClick={this.deletePostHandler} className="Delete">Delete</button>
-                    </div> */}
                 </div>
 
             );

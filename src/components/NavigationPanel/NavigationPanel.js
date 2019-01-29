@@ -4,7 +4,7 @@ import axios from '../../axios';
 import './NavigationPanel.css';
 
 import Movie from '../../components/Movie/Movie';
-import SearchField from 'C:/Users/Админ/test-app-react/tv-app/node_modules/react-search-field';
+import SearchField from '../../../node_modules/react-search-field';
 
 
 class NavigationPanel extends Component {
@@ -25,7 +25,6 @@ class NavigationPanel extends Component {
             this.setState({resultSearch: resultSearchMovies});
         } )
         .catch(error => {
-            console.log(error)
         });
     }
 
