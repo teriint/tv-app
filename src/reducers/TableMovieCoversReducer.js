@@ -1,28 +1,29 @@
 import {
-  GET_MOVIES_SUCCESS,
-  GET_MOVIES_FAIL,
-  // GET_MOVIE_DETAIL
+  SET_MOVIES_SUCCESS,
+  SET_LOADING_ERROR,
 } from '../actions/TableMovieCoversActions'
 
 const initialState = {
-    posts: [],
-    selectedPostId: null,
-    error: false,
-    show: true,
-  }
-  
-  export function MovieCoversReducer(state = initialState, action) {
-    switch (action.type) {
-      case GET_MOVIES_SUCCESS:
-        return { ...state, posts: action.payload};
-  
-      case GET_MOVIES_FAIL:
-        return { ...state, error:  action.error };
+  posts: [],
+  selectedPostId: null,
+  error: false,
+  show: true,
+}
 
-      // case GET_MOVIE_DETAIL:
-      //   return { ...state, selectedPostId:  action.payload };
-
-      default:
-        return state
-    }
+export function MovieCoversReducer(state = initialState, action) {
+  switch (action.type) {
+    case SET_MOVIES_SUCCESS:
+      const posts = action.payload.slice(0, 50);
+      return {
+        ...state,
+        posts
+      }
+    case SET_LOADING_ERROR:
+      return {
+        ...state,
+        error: true
+      }
+    default:
+      return state
   }
+}

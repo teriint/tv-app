@@ -1,30 +1,16 @@
 import React, { Component } from 'react';
-
-import axios from '../../axios';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import './TableMovieCovers.css';
-import { connect } from 'react-redux'
-import { handleLoadMovies } from '../../actions/TableMovieCoversActions'
-
+import { getShows } from '../../actions/TableMovieCoversActions'
 import { TableMovieCovers } from '../../components/TableMovieCoversComponents';
 
 class TableMovieCoversContainers extends Component {
 
-
     componentDidMount() {
-        axios.get('/shows')
-            .then(response => {
-                const posts = response.data.slice(0, 50);
-                const updatedPosts = posts.map(post => {
-                    return {
-                        ...post
-                    }
-                });
-                this.props.handleLoadMovies(updatedPosts);
-            })
-            .catch(error => {
-                this.props.handleLoadMovies();
-            });
+        const { getShows } = this.props
+        getShows()
     }
 
     render() {
@@ -37,7 +23,6 @@ class TableMovieCoversContainers extends Component {
                     show={movies.show}
                     selectedPostId={movies.selectedPostId}
                     error={movies.error}
-                    handleLoadMovies={handleLoadMovies}
                 />
             </div>
         );
@@ -50,12 +35,11 @@ const mapStateToProps = store => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        handleLoadMovies: arr => dispatch(handleLoadMovies(arr)),
-        // postSelectedHandler: id => dispatch(postSelectedHandler(id)),
-    }
-}
+const mapDispatchToProps = dispatch => ({
+    ...bindActionCreators({
+        getShows
+    }, dispatch)
+})
 
 export default connect(
     mapStateToProps,

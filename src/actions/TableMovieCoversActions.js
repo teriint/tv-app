@@ -1,32 +1,17 @@
-export const GET_MOVIES_SUCCESS = 'GET_MOVIES_SUCCESS'
-export const GET_MOVIES_FAIL = 'GET_MOVIES_FAIL'
-// export const GET_MOVIE_DETAIL = 'GET_MOVIE_DETAIL'
+import axios from '../axios'
 
-export function handleLoadMovies(arrMovies) {
+export const SET_MOVIES_SUCCESS = 'SET_MOVIES_SUCCESS'
+export const SET_LOADING_ERROR = 'SET_LOADING_ERROR'
 
-    if (arrMovies) {
-        return dispatch => {
-            dispatch({
-                type: GET_MOVIES_SUCCESS,
-                payload: arrMovies,
-            })
-        };
-    } else {
-        return dispatch => {
-            dispatch({
-                type: GET_MOVIES_FAIL,
-                error: true,
-            })
-        };
+export const setPosts = (payload) => dispatch => dispatch({ type: SET_MOVIES_SUCCESS, payload })
+
+export const setErrorLoading = () => dispatch => dispatch({ type: SET_LOADING_ERROR })
+
+export const getShows = () => async dispatch => {
+    try {
+        const response = await axios.get('/shows')
+        dispatch(setPosts(response.data))
+    } catch (error) {
+        dispatch(setErrorLoading());
     }
-
 }
-
-// export function postSelectedHandler(id) {
-//     return dispatch => {
-//         dispatch({
-//           type: GET_MOVIE_DETAIL,
-//           payload: id,
-//         }) 
-//     };
-// }
