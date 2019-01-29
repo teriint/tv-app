@@ -6,30 +6,30 @@ import './TableMovieCovers.css';
 import { connect } from 'react-redux'
 import { handleLoadMovies } from '../../actions/TableMovieCoversActions'
 
-import {TableMovieCovers} from '../../components/TableMovieCoversComponents';
+import { TableMovieCovers } from '../../components/TableMovieCoversComponents';
 
 class TableMovieCoversContainers extends Component {
-    
 
-    componentDidMount () {
-        axios.get( '/shows' )
-        .then( response => {
-            const posts = response.data.slice(0, 50);
-            const updatedPosts = posts.map(post => {
-                return {
-                    ...post
-                }
-            });
-            this.props.handleLoadMovies(updatedPosts);
+
+    componentDidMount() {
+        axios.get('/shows')
+            .then(response => {
+                const posts = response.data.slice(0, 50);
+                const updatedPosts = posts.map(post => {
+                    return {
+                        ...post
+                    }
+                });
+                this.props.handleLoadMovies(updatedPosts);
             })
-        .catch(error => {
-            this.props.handleLoadMovies();
-        });
+            .catch(error => {
+                this.props.handleLoadMovies();
+            });
     }
 
-    render () {
+    render() {
         const { movies } = this.props
-       
+
         return (
             <div>
                 <TableMovieCovers
@@ -38,7 +38,7 @@ class TableMovieCoversContainers extends Component {
                     selectedPostId={movies.selectedPostId}
                     error={movies.error}
                     handleLoadMovies={handleLoadMovies}
-                    />
+                />
             </div>
         );
     }
@@ -46,18 +46,18 @@ class TableMovieCoversContainers extends Component {
 
 const mapStateToProps = store => {
     return {
-      movies: store.movies,
+        movies: store.movies,
     }
-  }
-  
-  const mapDispatchToProps = dispatch => {
+}
+
+const mapDispatchToProps = dispatch => {
     return {
         handleLoadMovies: arr => dispatch(handleLoadMovies(arr)),
         // postSelectedHandler: id => dispatch(postSelectedHandler(id)),
     }
-  }
+}
 
-  export default connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(TableMovieCoversContainers)
+)(TableMovieCoversContainers)

@@ -4,22 +4,22 @@ export const GET_MOVIES_FAIL = 'GET_MOVIES_FAIL'
 
 export function handleLoadMovies(arrMovies) {
 
-  if (arrMovies) {
-    return dispatch => {
-        dispatch({
-            type: GET_MOVIES_SUCCESS,
-            payload: arrMovies, 
-            }) 
+    if (arrMovies) {
+        return dispatch => {
+            dispatch({
+                type: GET_MOVIES_SUCCESS,
+                payload: arrMovies,
+            })
         };
-  } else {
-    return dispatch => {
-        dispatch({
-            type: GET_MOVIES_FAIL,
-            error: true, 
-            }) 
+    } else {
+        return dispatch => {
+            dispatch({
+                type: GET_MOVIES_FAIL,
+                error: true,
+            })
         };
-  }
-  
+    }
+
 }
 
 // export function postSelectedHandler(id) {
